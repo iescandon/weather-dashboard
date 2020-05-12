@@ -1,5 +1,16 @@
+.jumbotron {
+    background-image: url("./skypicdark.jpg");
+    background-size: cover;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
 .row {
     /* border: solid red 5px; */
+    margin: auto;
 }
 
 .col {
@@ -7,5 +18,11 @@
 }
 
 .container {
-    margin: 30px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+h1,
+h2 {
+    font-weight: 500;
 }
