@@ -34,6 +34,16 @@ h2 {
     font-weight: 500;
 }
 
-.fa {
+.fa-sun-o {
     color: gold;
+}
+
+.btn {
+    background-color: #003566;
+    color: white;
+}
+
+.cityBtn {
+    width: 255px;
+    padding: 10px;
 }

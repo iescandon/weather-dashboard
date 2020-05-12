@@ -47,4 +47,7 @@ You are required to submit the following for review:
 
 
 sky image credits
-Photo by himashiyan gayanjana on Unsplash
+Photo by Aude-Andre Saturnio on Unsplash
+
+dark sky
+Photo by Patrick Tomasso on Unsplash
