@@ -48,6 +48,23 @@ h2 {
     padding: 10px;
 }
 
+.city-name-date {
+    font-family: 'Staatliches', cursive;
+    font-size: 60px;
+}
+
+.forecast-header,
+#current-date {
+    font-size: 30px;
+}
+
 #city-info {
-    padding-bottom: 45px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #003566;
+    color: white;
+}
+
+#weather-icon {
+    width: 225px;
 }
