@@ -1,7 +1,9 @@
 var citiesArray = ['Austin', 'Chicago', 'New York', 'Orlando', 'San Francisco', 'Seattle', 'Denver', 'Atlanta'];
-var cityName = "";
+var cityName = "Houston";
 
 $('#current-date').text(moment().format('dddd, MMMM Do YYYY'));
+
+displayCityInfo();
 
 citiesArray.forEach(function(city) {
     var btnDiv = $('<div>');
