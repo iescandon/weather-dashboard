@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url("./skypicdark.jpg");
+    background-image: url("./images/skypicdark.jpg");
     background-size: cover;
     color: white;
     padding: 30px;
@@ -44,6 +44,10 @@ h2 {
 }
 
 .cityBtn {
-    width: 255px;
+    width: 254px;
     padding: 10px;
+}
+
+#city-info {
+    padding-bottom: 45px;
 }
