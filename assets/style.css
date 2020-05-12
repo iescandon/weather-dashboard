@@ -4,8 +4,6 @@
     color: white;
     padding: 30px;
     text-align: center;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 700;
 }
 
 .row {
@@ -25,4 +23,17 @@
 h1,
 h2 {
     font-weight: 500;
+}
+
+.display-4 {
+    font-family: 'Staatliches', cursive!important;
+    font-size: 100px;
+}
+
+.search-city {
+    font-weight: 500;
+}
+
+.fa {
+    color: gold;
 }
