@@ -17,6 +17,7 @@ function retrieveCityInfo (event) {
     event.preventDefault();
     var userCity = $('#city-search-input').val().trim();
     cityName = userCity;
+    $('#city-search-input').val("");
     displayCityInfo();
 }
 
