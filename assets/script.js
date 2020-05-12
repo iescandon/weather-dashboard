@@ -13,6 +13,13 @@ citiesArray.forEach(function(city) {
     $('.city-buttons').append(btnDiv);
 })
 
+function retrieveCityInfo (event) {
+    event.preventDefault();
+    var userCity = $('#city-search-input').val().trim();
+    cityName = userCity;
+    displayCityInfo();
+}
+
 function chooseCity () {
     var city = $(this).attr('data-state');
     cityName = city;
@@ -50,3 +57,4 @@ function renderCityInfo (data) {
 }
 
 $('.cityBtn').click(chooseCity);
+$('.searchBtn').click(retrieveCityInfo);
