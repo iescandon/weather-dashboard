@@ -39,6 +39,7 @@ function displayCityInfo () {
 }
 
 function renderCityInfo (data) {
+    console.log(data);
     var cityName = data.name;
     $('.city-name-date').text(cityName);
     var tempF = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
@@ -47,6 +48,8 @@ function renderCityInfo (data) {
     $('.humidity-data').text(`Humidity: ${humidity}%`);
     var windSpeed = data.wind.speed;
     $('.wind-data').text(`Wind Speed: ${windSpeed} MPH`);
+    // var uvIndex =;
+    // $('.uv-index').text(`UV Index: ${uvIndex}`);
     // console.log(data.weather[0].main)
     if (data.weather[0].main === 'Clouds') {
         $('#weather-icon').attr('src', './assets/images/cloudy.jpg');

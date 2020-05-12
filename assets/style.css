@@ -29,9 +29,17 @@ h2 {
     font-family: 'Staatliches', cursive!important;
     font-size: 100px;
 }
+.searchBtn:hover {
+    background-color: #95d2e9;
+    color: white;
+}
+
+.cityBtn:hover {
+    background-color:gold;
+}
 
 .search-city {
-    font-weight: 500;
+    font-size: 20px;
 }
 
 .fa-sun-o {
@@ -53,6 +61,12 @@ h2 {
     font-size: 60px;
 }
 
+.dayBlock {
+    background-color: #95d2e9;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
 .forecast-header,
 #current-date {
     font-size: 30px;
@@ -67,4 +81,8 @@ h2 {
 
 #weather-icon {
     width: 225px;
+}
+
+#bottom-row {
+    padding-bottom: 100px;
 }
