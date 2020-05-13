@@ -30,12 +30,12 @@ h2 {
     font-size: 100px;
 }
 .searchBtn:hover {
-    background-color: slategray;
+    background-color: #837d94;
     color: white;
 }
 
 .cityBtn:hover {
-    background-color:gold;
+    background-color: gold;
 }
 
 .search-city {
@@ -87,9 +87,9 @@ h2 {
     padding-bottom: 100px;
 }
 
-.weather-data {
+/* .weather-data {
     color: gold;
-}
+} */
 
 .tiny-icon {
     width: 50px;
@@ -97,5 +97,5 @@ h2 {
 
 .tiny-date {
     font-family: 'Staatliches', cursive;
-    font-size: 20px;
+    font-size: 22px;
 }

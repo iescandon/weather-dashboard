@@ -32,7 +32,7 @@ function chooseCity () {
 function displayCityInfo () {
     var apiKey = "96e27da4f61bebe5c6e5c7c18c453252";
     // var queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
-    var queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+    var queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
     $.ajax({
         url: queryUrl,
         method: 'GET',
@@ -47,9 +47,9 @@ function renderCityInfo (data) {
     var currentWeather = data.weather[0].main;
     // var currentWeather = data.list[0].weather[0].main;
     $('.city-name-date').text(cityName);
-    var tempF = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
-    // var tempF = Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32);
-    $('.temp-data').text(`Temperature: ${tempF}° F`);
+    var temp = Math.ceil(data.main.temp);
+    // var tempF = Math.floor(data.list[0].main.temp);
+    $('.temp-data').text(`Temperature: ${temp}° F`);
     var humidity = data.main.humidity;
     // var humidity = data.list[0].main.humidity;
     $('.humidity-data').text(`Humidity: ${humidity}%`);
