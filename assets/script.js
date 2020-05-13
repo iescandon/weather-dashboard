@@ -47,16 +47,14 @@ function displayCityInfo () {
             method: 'GET',
         }).then(renderCityInfo)
     } else {
-        return;
+        cityName = 'Houston';
+        displayCityInfo();
     }
 }
 
 function renderCityInfo (data) {
-    // console.log(data);
-    $('#weatherCol').removeClass('hide');
+    console.log(data);
     var currentHour = moment().hours();
-    // cityName = localStorage.getItem(cityName);
-    // console.log(cityName);
     cityName = data.name;
     // var cityName = data.city.name;
     var currentWeather = data.weather[0].main;
@@ -69,7 +67,6 @@ function renderCityInfo (data) {
     // var humidity = data.list[0].main.humidity;
     $('.humidity-data').text(`Humidity: ${humidity}%`);
     var windSpeed = data.wind.speed;
-    // var windSpeed = data.list[0].wind.speed;
     $('.wind-data').text(`Wind Speed: ${windSpeed} MPH`);
     if (currentWeather === 'Clouds') {
         $('#weather-icon').attr('src', './assets/images/cloudy.png');
@@ -88,13 +85,11 @@ function renderCityInfo (data) {
     } else {
         $('#weather-icon').attr('src', './assets/images/earth.png');
     }
-    // console.log(cityName);
-    // console.log(currentWeather);
 }
 
 for (var i = 1; i < 6; i++) {
     var dayDiv = $('<div>');
-    dayDiv.addClass('col dayBlock');
+    dayDiv.addClass('col-2-sm col-md mb-3 dayBlock');
     var pDate = $('<p>');
     pDate.addClass('row justify-content-center mt-3 mb-3 tiny-date');
     var day = moment().add(i, 'days').format('l');
