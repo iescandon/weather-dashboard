@@ -30,8 +30,10 @@ function chooseCity () {
 }
 
 function displayCityInfo () {
+    // var days = 6;
     var apiKey = "96e27da4f61bebe5c6e5c7c18c453252";
     var queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+    // var queryUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?id=${cityName}&cnt=${days}&appid=${apiKey}`;
     $.ajax({
         url: queryUrl,
         method: 'GET',
@@ -40,6 +42,7 @@ function displayCityInfo () {
 
 function renderCityInfo (data) {
     console.log(data);
+    var currentHour = moment().hours();
     var cityName = data.name;
     $('.city-name-date').text(cityName);
     var tempF = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
@@ -52,13 +55,19 @@ function renderCityInfo (data) {
     // $('.uv-index').text(`UV Index: ${uvIndex}`);
     // console.log(data.weather[0].main)
     if (data.weather[0].main === 'Clouds') {
-        $('#weather-icon').attr('src', './assets/images/cloudy.jpg');
+        $('#weather-icon').attr('src', './assets/images/cloudy.png');
     } else if (data.weather[0].main === "Rain") {
-        $('#weather-icon').attr('src', './assets/images/rainy.jpg');
+        $('#weather-icon').attr('src', './assets/images/rainy.png');
     } else if (data.weather[0].main === "Clear") {
-        $('#weather-icon').attr('src', './assets/images/sunny.jpg');
+        if (currentHour < 20) {
+            $('#weather-icon').attr('src', './assets/images/sunny.png');
+        } else {
+            $('#weather-icon').attr('src', './assets/images/moon.png');
+        }
+    } else if (data.weather[0].main === "Thunderstorms") {
+        $('#weather-icon').attr('src', './assets/images/thunderstorm.png');
     } else {
-        $('#weather-icon').attr('src', './assets/images/thunderstorm.jpg');
+        $('#weather-icon').attr('src', './assets/images/earth.png');
     }
 }
 

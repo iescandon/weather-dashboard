@@ -51,3 +51,5 @@ Photo by Aude-Andre Saturnio on Unsplash
 
 dark sky
 Photo by Patrick Tomasso on Unsplash
+
+<div>Icons made by <a href="https://www.flaticon.com/authors/linector" title="Linector">Linector</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
