@@ -99,3 +99,7 @@ h2 {
     font-family: 'Staatliches', cursive;
     font-size: 22px;
 }
+
+.hide {
+    display: none;
+}
