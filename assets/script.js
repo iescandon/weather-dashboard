@@ -38,13 +38,17 @@ function chooseCity () {
 }
 
 function displayCityInfo () {
-    var apiKey = "96e27da4f61bebe5c6e5c7c18c453252";
-    // var queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
-    var queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
-    $.ajax({
-        url: queryUrl,
-        method: 'GET',
-    }).then(renderCityInfo)
+    if (cityName) {
+        var apiKey = "96e27da4f61bebe5c6e5c7c18c453252";
+        // var queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
+        var queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
+        $.ajax({
+            url: queryUrl,
+            method: 'GET',
+        }).then(renderCityInfo)
+    } else {
+        return;
+    }
 }
 
 function renderCityInfo (data) {
