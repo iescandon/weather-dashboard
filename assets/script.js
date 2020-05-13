@@ -73,5 +73,28 @@ function renderCityInfo (data) {
     }
 }
 
+for (var i = 1; i < 6; i++) {
+    var dayDiv = $('<div>');
+    dayDiv.addClass('col dayBlock');
+    var pDate = $('<p>');
+    pDate.addClass('row justify-content-center mt-3 mb-3 tiny-date');
+    var day = moment().add(i, 'days').format('l');
+    pDate.text(day);
+    var weatherImg = $('<img>');
+    weatherImg.addClass('row justify-content-center mb-3 tiny-icon');
+    weatherImg.attr('src','./assets/images/thunderstorm.png');
+    var pTemp = $('<p>');
+    pTemp.addClass('row justify-content-center mb-3');
+    pTemp.text(`Temp: xyz`);
+    var pHumidity = $('<p>');
+    pHumidity.addClass('row justify-content-center mb-3');
+    pHumidity.text(`Humidity: 123`);
+    dayDiv.append(pDate);
+    dayDiv.append(weatherImg);
+    dayDiv.append(pTemp);
+    dayDiv.append(pHumidity);
+    $('#bottom-row').append(dayDiv);
+}
+
 $('.cityBtn').click(chooseCity);
 $('.searchBtn').click(retrieveCityInfo);

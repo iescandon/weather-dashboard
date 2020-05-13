@@ -62,7 +62,7 @@ h2 {
 }
 
 .dayBlock {
-    background-color: #95d2e9;
+    background-color: #7caec9;
     margin-right: 5px;
     margin-left: 5px;
 }
@@ -89,4 +89,13 @@ h2 {
 
 .weather-data {
     color: gold;
+}
+
+.tiny-icon {
+    width: 50px;
+}
+
+.tiny-date {
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
 }
