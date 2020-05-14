@@ -46,10 +46,20 @@ You are required to submit the following for review:
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
 
 
-sky image credits
-Photo by Aude-Andre Saturnio on Unsplash
 
-dark sky
+
+dark sky image
 Photo by Patrick Tomasso on Unsplash
 
-<div>Icons made by <a href="https://www.flaticon.com/authors/linector" title="Linector">Linector</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+drizzle, partlycloudy, rainy, snowy, sunny, thunderstorm, windy icons
+Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
+cloudy icon
+<div>Icons made by <a href="https://www.flaticon.com/authors/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+moon icon
+<div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+earth icon
+<div>Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub">turkkub</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

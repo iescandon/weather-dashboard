@@ -108,9 +108,13 @@ function renderForecast (data) {
         var dayDiv = $('<div>');
         dayDiv.addClass('col-2-sm col-md mb-3 dayBlock');
         var pDate = $('<p>');
-        pDate.addClass('row justify-content-center mt-3 mb-3 tiny-date');
-        var day = moment().add(i, 'days').format('l');
-        pDate.text(day);
+        pDate.addClass('row justify-content-center mt-3 tiny-date');
+        var date = moment().add(i, 'days').format('l');
+        pDate.text(date);
+        var pDay = $('<p>');
+        pDay.addClass('row justify-content-center mb-3 tiny-day');
+        var day = moment().add(i, 'days').format('dddd');
+        pDay.text(day);
         var dayWeather = data.daily[i].weather[0].main;
         var weatherImg = $('<img>');
         weatherImg.addClass('row justify-content-center mb-3 tiny-icon');
@@ -142,6 +146,7 @@ function renderForecast (data) {
         var dayHumidity = data.daily[i].humidity;
         pHumidity.text(`Humid: ${dayHumidity}%`);
         dayDiv.append(pDate);
+        dayDiv.append(pDay);
         dayDiv.append(weatherImg);
         dayDiv.append(pTemp);
         dayDiv.append(pHumidity);
@@ -151,43 +156,42 @@ function renderForecast (data) {
 
 function renderUVindex (data) {
     var currentUV = data.daily[0].uvi;
-    // $('.uv-index').text(`UV Index: ${currentUV}`);
     $('.uv-index').text(currentUV);
-    if (currentUV > 10) {
-        console.log('extreme');
+    if (currentUV >= 11) {
         $('.uv-index').removeClass('very-high');
         $('.uv-index').removeClass('high');
         $('.uv-index').removeClass('moderate');
         $('.uv-index').removeClass('low');
         $('.uv-index').addClass('extreme');
-    } else if (currentUV > 7.99 && currentUV < 11) {
+        // console.log('extreme');
+    } else if (currentUV >= 8 && currentUV < 11) {
         $('.uv-index').removeClass('extreme');
         $('.uv-index').removeClass('high');
         $('.uv-index').removeClass('moderate');
         $('.uv-index').removeClass('low');
         $('.uv-index').addClass('very-high');
-        console.log('very high');
-    } else if (currentUV > 5.99 && currentUV < 8) {
+        // console.log('very high');
+    } else if (currentUV >= 6 && currentUV < 8) {
         $('.uv-index').removeClass('extreme');
         $('.uv-index').removeClass('very-high');
         $('.uv-index').removeClass('moderate');
         $('.uv-index').removeClass('low');
         $('.uv-index').addClass('high');
-        console.log('high');
-    } else if (currentUV > 2.99 && currentUV < 6) {
+        // console.log('high');
+    } else if (currentUV >= 3 && currentUV < 6) {
         $('.uv-index').removeClass('extreme');
         $('.uv-index').removeClass('very-high');
         $('.uv-index').removeClass('high');
         $('.uv-index').removeClass('low');
         $('.uv-index').addClass('moderate');
-        console.log('moderate');
+        // console.log('moderate');
     } else {
         $('.uv-index').removeClass('extreme');
         $('.uv-index').removeClass('very-high');
         $('.uv-index').removeClass('high');
         $('.uv-index').removeClass('moderate');
         $('.uv-index').addClass('low');
-        console.log('low');
+        // console.log('low');
     }
 }
 
