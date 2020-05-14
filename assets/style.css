@@ -29,6 +29,7 @@ h2 {
     font-family: 'Staatliches', cursive!important;
     font-size: 100px;
 }
+
 .searchBtn:hover {
     background-color: #837d94;
     color: white;
@@ -52,11 +53,11 @@ h2 {
 }
 
 .cityBtn {
-    width: 254px;
+    width: 15vw;
     padding: 10px;
 }
 
-.city-name-date {
+.city-name {
     font-family: 'Staatliches', cursive;
     font-size: 60px;
 }
@@ -81,6 +82,7 @@ h2 {
 
 #weather-icon {
     width: 225px;
+    padding-top: 15px;
 }
 
 #bottom-row {
@@ -103,9 +105,6 @@ h2 {
 .tiny-day {
     font-style: italic;
 }
-/* .hide {
-    display: none;
-} */
 
 .extreme {
     background-color: purple;
@@ -133,3 +132,34 @@ h2 {
     background-color: green;
     padding: 5px;
 }
+
+#weatherCol {
+    /* margin-left: 30px;
+    margin-right: 30px; */
+}
+
+#searchCol {
+    /* padding-right: 30px; */
+}
+
+@media only screen and (max-width: 991px) {
+    .cityBtn {
+        display: none;
+    }
+    .form-control,
+    .searchBtn {
+        margin-bottom: 20px;
+    }
+  }
+
+@media only screen and (max-width: 415px) {
+    .display-4 {
+        font-size: 75px;
+    }
+    #current-date {
+        font-size: 20px;
+    }
+    .city-name {
+        font-size: 45px;
+    }
+  }
