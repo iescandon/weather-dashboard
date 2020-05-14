@@ -1,9 +1,12 @@
 var citiesArray = [];
 var cityName = (localStorage.getItem('city'));
+var cityLat = '29.76';
+var cityLon = '-95.36';
+var currentHour = moment().hours();
 
 $('#current-date').text(moment().format('dddd, MMMM Do YYYY'));
 
-displayCityInfo();
+displayCurrentWeather();
 
 function renderCityButtons () {
     $('.city-buttons').empty();
@@ -26,7 +29,7 @@ function retrieveCityInfo (event) {
     citiesArray.push(cityName);
     $('#city-search-input').val("");
     renderCityButtons();
-    displayCityInfo();
+    displayCurrentWeather();
 }
 
 
@@ -34,41 +37,49 @@ function chooseCity () {
     var city = $(this).attr('data-state');
     cityName = city;
     localStorage.setItem('city', cityName);
-    displayCityInfo();
+    displayCurrentWeather();
 }
 
-function displayCityInfo () {
+function displayCurrentWeather () {
     if (cityName) {
         var apiKey = "96e27da4f61bebe5c6e5c7c18c453252";
-        // var queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
         var queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
         $.ajax({
             url: queryUrl,
             method: 'GET',
-        }).then(renderCityInfo)
+        }).then(renderCurrentWeather)
     } else {
         cityName = 'Houston';
-        displayCityInfo();
+        displayCurrentWeather();
     }
 }
 
-function renderCityInfo (data) {
+function displayForecast () {
+            var apiKey = "f60223f1ece87aa55821b69a70f473df";
+            var queryUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,minutely&appid=${apiKey}&units=imperial`
+            $.ajax({
+                url: queryUrl,
+                method: 'GET',
+            }).then(function (data) {
+                renderForecast(data);
+                renderUVindex(data);
+})
+}
+
+function renderCurrentWeather (data) {
     console.log(data);
-    var currentHour = moment().hours();
+    cityLat = data.coord.lat;
+    cityLon = data.coord.lon;
     cityName = data.name;
-    // var cityName = data.city.name;
     var currentWeather = data.weather[0].main;
-    // var currentWeather = data.list[0].weather[0].main;
     $('.city-name-date').text(cityName);
     var temp = Math.ceil(data.main.temp);
-    // var tempF = Math.floor(data.list[0].main.temp);
     $('.temp-data').text(`Temperature: ${temp}° F`);
     var humidity = data.main.humidity;
-    // var humidity = data.list[0].main.humidity;
     $('.humidity-data').text(`Humidity: ${humidity}%`);
     var windSpeed = data.wind.speed;
     $('.wind-data').text(`Wind Speed: ${windSpeed} MPH`);
-    if (currentWeather === 'Clouds') {
+    if (currentWeather === "Clouds") {
         $('#weather-icon').attr('src', './assets/images/cloudy.png');
     } else if (currentWeather === "Rain") {
         $('#weather-icon').attr('src', './assets/images/rainy.png');
@@ -85,31 +96,59 @@ function renderCityInfo (data) {
     } else {
         $('#weather-icon').attr('src', './assets/images/earth.png');
     }
+    displayForecast();
 }
 
-for (var i = 1; i < 6; i++) {
-    var dayDiv = $('<div>');
-    dayDiv.addClass('col-2-sm col-md mb-3 dayBlock');
-    var pDate = $('<p>');
-    pDate.addClass('row justify-content-center mt-3 mb-3 tiny-date');
-    var day = moment().add(i, 'days').format('l');
-    pDate.text(day);
-    var weatherImg = $('<img>');
-    weatherImg.addClass('row justify-content-center mb-3 tiny-icon');
-    weatherImg.attr('src','./assets/images/thunderstorm.png');
-    var pTemp = $('<p>');
-    pTemp.addClass('row justify-content-center mb-3');
-    pTemp.text(`Temp: xyz`);
-    var pHumidity = $('<p>');
-    pHumidity.addClass('row justify-content-center mb-3');
-    pHumidity.text(`Humidity: 123`);
-    dayDiv.append(pDate);
-    dayDiv.append(weatherImg);
-    dayDiv.append(pTemp);
-    dayDiv.append(pHumidity);
-    $('#bottom-row').append(dayDiv);
+function renderForecast (data) {
+    console.log(data);
+    $('#bottom-row').empty();
+    for (var i = 1; i < 6; i++) {
+        var dayDiv = $('<div>');
+        dayDiv.addClass('col-2-sm col-md mb-3 dayBlock');
+        var pDate = $('<p>');
+        pDate.addClass('row justify-content-center mt-3 mb-3 tiny-date');
+        var day = moment().add(i, 'days').format('l');
+        pDate.text(day);
+        var dayWeather = data.daily[i].weather[0].main;
+        var weatherImg = $('<img>');
+        weatherImg.addClass('row justify-content-center mb-3 tiny-icon');
+        if (dayWeather === "Clouds") {
+            weatherImg.attr('src','./assets/images/cloudy.png');
+        } else if (dayWeather === "Rain") {
+            weatherImg.attr('src','./assets/images/rainy.png');
+        } else if (dayWeather === "Mist") {
+            weatherImg.attr('src','./assets/images/drizzle.png');
+        } else if (dayWeather === "Clear") {
+            if (currentHour < 20 && currentHour > 6) {
+                weatherImg.attr('src', './assets/images/sunny.png');
+            } else {
+                weatherImg.attr('src', './assets/images/moon.png');
+            }
+        } else if (dayWeather === "Thunderstorms") {
+            weatherImg.attr('src', './assets/images/thunderstorm.png');
+        } else {
+            weatherImg.attr('src', './assets/images/earth.png');
+        }
+        var pTemp = $('<p>');
+        pTemp.addClass('row justify-content-center mb-3');
+        var dayTemp = Math.ceil(data.daily[i].temp.day);
+        pTemp.text(`Temp: ${dayTemp}° F`);
+        var pHumidity = $('<p>');
+        pHumidity.addClass('row justify-content-center mb-3');
+        var dayHumidity = data.daily[i].humidity;
+        pHumidity.text(`Humid: ${dayHumidity}%`);
+        dayDiv.append(pDate);
+        dayDiv.append(weatherImg);
+        dayDiv.append(pTemp);
+        dayDiv.append(pHumidity);
+        $('#bottom-row').append(dayDiv);
+    }
 }
 
+function renderUVindex (data) {
+    var currentUV = data.daily[0].uvi;
+    $('.uv-index').text(`UV Index: ${currentUV}`);
+}
 
 $(document).on("click", ".cityBtn", chooseCity);
 $('.searchBtn').click(retrieveCityInfo);
