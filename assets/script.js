@@ -93,6 +93,8 @@ function renderCurrentWeather (data) {
         }
     } else if (currentWeather === "Thunderstorms") {
         $('#weather-icon').attr('src', './assets/images/thunderstorm.png');
+    } else if (currentWeather === "Snow") {
+        $('#weather-icon').attr('src', './assets/images/snowy.png');
     } else {
         $('#weather-icon').attr('src', './assets/images/earth.png');
     }
@@ -126,6 +128,8 @@ function renderForecast (data) {
             }
         } else if (dayWeather === "Thunderstorms") {
             weatherImg.attr('src', './assets/images/thunderstorm.png');
+        } else if (currentWeather === "Snow") {
+            weatherImg.attr('src', './assets/images/snowy.png');
         } else {
             weatherImg.attr('src', './assets/images/earth.png');
         }
@@ -147,7 +151,44 @@ function renderForecast (data) {
 
 function renderUVindex (data) {
     var currentUV = data.daily[0].uvi;
-    $('.uv-index').text(`UV Index: ${currentUV}`);
+    // $('.uv-index').text(`UV Index: ${currentUV}`);
+    $('.uv-index').text(currentUV);
+    if (currentUV > 10) {
+        console.log('extreme');
+        $('.uv-index').removeClass('very-high');
+        $('.uv-index').removeClass('high');
+        $('.uv-index').removeClass('moderate');
+        $('.uv-index').removeClass('low');
+        $('.uv-index').addClass('extreme');
+    } else if (currentUV > 7.99 && currentUV < 11) {
+        $('.uv-index').removeClass('extreme');
+        $('.uv-index').removeClass('high');
+        $('.uv-index').removeClass('moderate');
+        $('.uv-index').removeClass('low');
+        $('.uv-index').addClass('very-high');
+        console.log('very high');
+    } else if (currentUV > 5.99 && currentUV < 8) {
+        $('.uv-index').removeClass('extreme');
+        $('.uv-index').removeClass('very-high');
+        $('.uv-index').removeClass('moderate');
+        $('.uv-index').removeClass('low');
+        $('.uv-index').addClass('high');
+        console.log('high');
+    } else if (currentUV > 2.99 && currentUV < 6) {
+        $('.uv-index').removeClass('extreme');
+        $('.uv-index').removeClass('very-high');
+        $('.uv-index').removeClass('high');
+        $('.uv-index').removeClass('low');
+        $('.uv-index').addClass('moderate');
+        console.log('moderate');
+    } else {
+        $('.uv-index').removeClass('extreme');
+        $('.uv-index').removeClass('very-high');
+        $('.uv-index').removeClass('high');
+        $('.uv-index').removeClass('moderate');
+        $('.uv-index').addClass('low');
+        console.log('low');
+    }
 }
 
 $(document).on("click", ".cityBtn", chooseCity);
