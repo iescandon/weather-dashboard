@@ -138,11 +138,11 @@ function renderForecast (data) {
             weatherImg.attr('src', './assets/images/earth.png');
         }
         var pTemp = $('<p>');
-        pTemp.addClass('row justify-content-center mb-3');
+        pTemp.addClass('row justify-content-center mb-3 tiny-temp');
         var dayTemp = Math.ceil(data.daily[i].temp.day);
         pTemp.text(`Temp: ${dayTemp}° F`);
         var pHumidity = $('<p>');
-        pHumidity.addClass('row justify-content-center mb-3');
+        pHumidity.addClass('row justify-content-center mb-3 tiny-humid');
         var dayHumidity = data.daily[i].humidity;
         pHumidity.text(`Humid: ${dayHumidity}%`);
         dayDiv.append(pDate);
@@ -156,41 +156,41 @@ function renderForecast (data) {
 
 function renderUVindex (data) {
     var currentUV = data.daily[0].uvi;
-    $('.uv-index').text(currentUV);
+    $('#uv-index').text(currentUV);
     if (currentUV >= 11) {
-        $('.uv-index').removeClass('very-high');
-        $('.uv-index').removeClass('high');
-        $('.uv-index').removeClass('moderate');
-        $('.uv-index').removeClass('low');
-        $('.uv-index').addClass('extreme');
+        $('#uv-index').removeClass('very-high');
+        $('#uv-index').removeClass('high');
+        $('#uv-index').removeClass('moderate');
+        $('#uv-index').removeClass('low');
+        $('#uv-index').addClass('extreme');
         // console.log('extreme');
     } else if (currentUV >= 8 && currentUV < 11) {
-        $('.uv-index').removeClass('extreme');
-        $('.uv-index').removeClass('high');
-        $('.uv-index').removeClass('moderate');
-        $('.uv-index').removeClass('low');
-        $('.uv-index').addClass('very-high');
+        $('#uv-index').removeClass('extreme');
+        $('#uv-index').removeClass('high');
+        $('#uv-index').removeClass('moderate');
+        $('#uv-index').removeClass('low');
+        $('#uv-index').addClass('very-high');
         // console.log('very high');
     } else if (currentUV >= 6 && currentUV < 8) {
-        $('.uv-index').removeClass('extreme');
-        $('.uv-index').removeClass('very-high');
-        $('.uv-index').removeClass('moderate');
-        $('.uv-index').removeClass('low');
-        $('.uv-index').addClass('high');
+        $('#uv-index').removeClass('extreme');
+        $('#uv-index').removeClass('very-high');
+        $('#uv-index').removeClass('moderate');
+        $('#uv-index').removeClass('low');
+        $('#uv-index').addClass('high');
         // console.log('high');
     } else if (currentUV >= 3 && currentUV < 6) {
-        $('.uv-index').removeClass('extreme');
-        $('.uv-index').removeClass('very-high');
-        $('.uv-index').removeClass('high');
-        $('.uv-index').removeClass('low');
-        $('.uv-index').addClass('moderate');
+        $('#uv-index').removeClass('extreme');
+        $('#uv-index').removeClass('very-high');
+        $('#uv-index').removeClass('high');
+        $('#uv-index').removeClass('low');
+        $('#uv-index').addClass('moderate');
         // console.log('moderate');
     } else {
-        $('.uv-index').removeClass('extreme');
-        $('.uv-index').removeClass('very-high');
-        $('.uv-index').removeClass('high');
-        $('.uv-index').removeClass('moderate');
-        $('.uv-index').addClass('low');
+        $('#uv-index').removeClass('extreme');
+        $('#uv-index').removeClass('very-high');
+        $('#uv-index').removeClass('high');
+        $('#uv-index').removeClass('moderate');
+        $('#uv-index').addClass('low');
         // console.log('low');
     }
 }
