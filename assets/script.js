@@ -10,6 +10,7 @@ displayCurrentWeather();
 
 function renderCityButtons () {
     $('.city-buttons').empty();
+    var dataOptions = '';
     citiesArray.forEach(function(city) {
         var btnDiv = $('<div>');
         var cityBtn = $('<button>');
@@ -18,7 +19,9 @@ function renderCityButtons () {
         cityBtn.text(city);
         btnDiv.append(cityBtn);
         $('.city-buttons').prepend(btnDiv);
+        dataOptions += `<option value= '${city}'>`;
     })
+    $('#cities').html(dataOptions);
 }
 
 function retrieveCityInfo (event) {
