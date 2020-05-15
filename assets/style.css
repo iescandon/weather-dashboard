@@ -157,7 +157,7 @@ h2 {
     .humidity-data,
     .wind-data,
     .uv-data {
-        font-size: 24px;
+        font-size: 20px;
     }
     .tiny-date {
         font-size: 40px;
@@ -171,7 +171,7 @@ h2 {
         width: 150px;
     }
     #weather-icon {
-        width: 175px;
+        width: 150px;
     }
   }
 
