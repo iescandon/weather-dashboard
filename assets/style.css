@@ -3,10 +3,6 @@ h2 {
     font-weight: 500;
 }
 
-input::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
 .jumbotron {
     background-image: url("./images/skypicdark.jpg");
     background-size: cover;
@@ -163,9 +159,6 @@ input::-webkit-calendar-picker-indicator {
     }
     #weather-icon {
         width: 175px;
-    }
-    input::-webkit-calendar-picker-indicator {
-        display: block;
     }
   }
 

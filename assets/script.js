@@ -3,6 +3,7 @@ var cityName = (localStorage.getItem('city'));
 var cityLat = '29.76';
 var cityLon = '-95.36';
 var currentHour = moment().hours();
+var windowWidth = this.innerWidth;
 
 $('#current-date').text(moment().format('dddd, MMMM Do YYYY'));
 
@@ -19,7 +20,9 @@ function renderCityButtons () {
         cityBtn.text(city);
         btnDiv.append(cityBtn);
         $('.city-buttons').prepend(btnDiv);
-        dataOptions += `<option value= '${city}'>`;
+        if (windowWidth <= 991) {
+            dataOptions += `<option value= '${city}'>`;
+        }
     })
     $('#cities').html(dataOptions);
 }
@@ -81,18 +84,18 @@ function renderCurrentWeather (data) {
     $('.humidity-data').text(`Humidity: ${humidity}%`);
     var windSpeed = data.wind.speed;
     $('.wind-data').text(`Wind Speed: ${windSpeed} MPH`);
-    if (currentWeather === "Clouds") {
-        $('#weather-icon').attr('src', './assets/images/cloudy.png');
-    } else if (currentWeather === "Rain") {
-        $('#weather-icon').attr('src', './assets/images/rainy.png');
-    } else if (currentWeather === "Mist") {
-        $('#weather-icon').attr('src', './assets/images/drizzle.png');
-    } else if (currentWeather === "Clear") {
+    if (currentWeather === "Clear") {
         if (currentHour < 20 && currentHour > 6) {
             $('#weather-icon').attr('src', './assets/images/sunny.png');
         } else {
             $('#weather-icon').attr('src', './assets/images/moon.png');
         }
+    } else if (currentWeather === "Clouds") {
+        $('#weather-icon').attr('src', './assets/images/cloudy.png');
+    } else if (currentWeather === "Rain") {
+        $('#weather-icon').attr('src', './assets/images/rainy.png');
+    } else if (currentWeather === "Mist") {
+        $('#weather-icon').attr('src', './assets/images/drizzle.png');
     } else if (currentWeather === "Thunderstorm") {
         $('#weather-icon').attr('src', './assets/images/thunderstorm.png');
     } else if (currentWeather === "Snow") {
@@ -121,18 +124,18 @@ function renderForecast (data) {
         var dayWeather = data.daily[i].weather[0].main;
         var weatherImg = $('<img>');
         weatherImg.addClass('row justify-content-center mb-3 tiny-icon');
-        if (dayWeather === "Clouds") {
-            weatherImg.attr('src','./assets/images/cloudy.png');
-        } else if (dayWeather === "Rain") {
-            weatherImg.attr('src','./assets/images/rainy.png');
-        } else if (dayWeather === "Mist") {
-            weatherImg.attr('src','./assets/images/drizzle.png');
-        } else if (dayWeather === "Clear") {
+        if (dayWeather === "Clear") {
             if (currentHour < 20 && currentHour > 6) {
                 weatherImg.attr('src', './assets/images/sunny.png');
             } else {
                 weatherImg.attr('src', './assets/images/moon.png');
             }
+        } else if (dayWeather === "Clouds") {
+            weatherImg.attr('src','./assets/images/cloudy.png');
+        } else if (dayWeather === "Rain") {
+            weatherImg.attr('src','./assets/images/rainy.png');
+        } else if (dayWeather === "Mist") {
+            weatherImg.attr('src','./assets/images/drizzle.png');
         } else if (dayWeather === "Thunderstorm") {
             weatherImg.attr('src', './assets/images/thunderstorm.png');
         } else if (currentWeather === "Snow") {
@@ -168,35 +171,30 @@ function renderUVindex (data) {
         $('#uv-index').removeClass('moderate');
         $('#uv-index').removeClass('low');
         $('#uv-index').addClass('extreme');
-        // console.log('extreme');
     } else if (currentUV >= 8 && currentUV < 11) {
         $('#uv-index').removeClass('extreme');
         $('#uv-index').removeClass('high');
         $('#uv-index').removeClass('moderate');
         $('#uv-index').removeClass('low');
         $('#uv-index').addClass('very-high');
-        // console.log('very high');
     } else if (currentUV >= 6 && currentUV < 8) {
         $('#uv-index').removeClass('extreme');
         $('#uv-index').removeClass('very-high');
         $('#uv-index').removeClass('moderate');
         $('#uv-index').removeClass('low');
         $('#uv-index').addClass('high');
-        // console.log('high');
     } else if (currentUV >= 3 && currentUV < 6) {
         $('#uv-index').removeClass('extreme');
         $('#uv-index').removeClass('very-high');
         $('#uv-index').removeClass('high');
         $('#uv-index').removeClass('low');
         $('#uv-index').addClass('moderate');
-        // console.log('moderate');
     } else {
         $('#uv-index').removeClass('extreme');
         $('#uv-index').removeClass('very-high');
         $('#uv-index').removeClass('high');
         $('#uv-index').removeClass('moderate');
         $('#uv-index').addClass('low');
-        // console.log('low');
     }
 }
 
