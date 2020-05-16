@@ -70,7 +70,6 @@ function displayForecast () {
 }
 
 function renderCurrentWeather (data) {
-    console.log(data);
     cityLat = data.coord.lat;
     cityLon = data.coord.lon;
     cityName = data.name;
@@ -98,6 +97,8 @@ function renderCurrentWeather (data) {
         $('#weather-icon').attr('src', './assets/images/thunderstorm.png');
     } else if (currentWeather === "Snow") {
         $('#weather-icon').attr('src', './assets/images/snowy.png');
+    } else if (currentWeather === "Wind") {
+        $('#weather-icon').attr('src', './assets/images/windy.png');
     } else {
         $('#weather-icon').attr('src', './assets/images/earth.png');
     }
@@ -105,7 +106,6 @@ function renderCurrentWeather (data) {
 }
 
 function renderForecast (data) {
-    console.log(data);
     $('#bottom-row').empty();
     for (var i = 1; i < 6; i++) {
         var dayDiv = $('<div>');
@@ -137,6 +137,8 @@ function renderForecast (data) {
             weatherImg.attr('src', './assets/images/thunderstorm.png');
         } else if (currentWeather === "Snow") {
             weatherImg.attr('src', './assets/images/snowy.png');
+        } else if (currentWeather === "Wind") {
+            weatherImg.attr('src', './assets/images/windy.png');
         } else {
             weatherImg.attr('src', './assets/images/earth.png');
         }
