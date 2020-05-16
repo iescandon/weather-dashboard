@@ -2,10 +2,6 @@ h1,
 h2 {
     font-weight: 500;
 }
-/* 
-datalist {
-    display: none;
-} */
 
 input::-webkit-calendar-picker-indicator {
     display: none;
@@ -20,12 +16,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .row {
-    /* border: solid red 5px; */
     margin: auto;
-}
-
-.col {
-    /* border: dotted blue 5px; */
 }
 
 .container {
@@ -34,7 +25,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .display-4 {
-    font-family: 'Staatliches', cursive!important;
+    font-family: 'Staatliches', cursive;
     font-size: 100px;
 }
 
