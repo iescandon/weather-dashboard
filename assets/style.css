@@ -2,8 +2,12 @@ h1,
 h2 {
     font-weight: 500;
 }
-
+/* 
 datalist {
+    display: none;
+} */
+
+input::-webkit-calendar-picker-indicator {
     display: none;
 }
 
@@ -138,11 +142,6 @@ datalist {
     padding-right: 50px;
 }
 
-#searchCol {
-    /* padding-left: 25px;
-    padding-right: 25px; */
-}
-
 @media only screen and (max-width: 991px) {
     .cityBtn {
         display: none;
@@ -173,6 +172,9 @@ datalist {
     }
     #weather-icon {
         width: 175px;
+    }
+    input::-webkit-calendar-picker-indicator {
+        display: block;
     }
   }
 
