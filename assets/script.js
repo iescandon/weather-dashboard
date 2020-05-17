@@ -7,7 +7,7 @@ var windowWidth = this.innerWidth;
 
 $('#current-date').text(moment().format('dddd, MMMM Do YYYY'));
 
-displayCurrentWeather();
+getCurrentWeather();
 
 function renderCityButtons () {
     $('.city-buttons').empty();
@@ -35,18 +35,17 @@ function retrieveCityInfo (event) {
     citiesArray.push(cityName);
     $('#city-search-input').val("");
     renderCityButtons();
-    displayCurrentWeather();
+    getCurrentWeather();
 }
-
 
 function chooseCity () {
     var city = $(this).attr('data-state');
     cityName = city;
     localStorage.setItem('city', cityName);
-    displayCurrentWeather();
+    getCurrentWeather();
 }
 
-function displayCurrentWeather () {
+function getCurrentWeather () {
     if (cityName) {
         var apiKey = "96e27da4f61bebe5c6e5c7c18c453252";
         var queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
@@ -56,11 +55,11 @@ function displayCurrentWeather () {
         }).then(renderCurrentWeather)
     } else {
         cityName = 'Houston';
-        displayCurrentWeather();
+        getCurrentWeather();
     }
 }
 
-function displayForecast () {
+function getForecast () {
             var apiKey = "f60223f1ece87aa55821b69a70f473df";
             var queryUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,minutely&appid=${apiKey}&units=imperial`
             $.ajax({
@@ -105,7 +104,7 @@ function renderCurrentWeather (data) {
     } else {
         $('#weather-icon').attr('src', './assets/images/earth.png');
     }
-    displayForecast();
+    getForecast();
 }
 
 function renderForecast (data) {

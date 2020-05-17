@@ -1,5 +1,4 @@
-h1,
-h2 {
+h1 {
     font-weight: 500;
 }
 
@@ -11,8 +10,13 @@ h2 {
     text-align: center;
 }
 
-.row {
-    margin: auto;
+.display-4 {
+    font-family: 'Staatliches', cursive;
+    font-size: 100px;
+}
+
+.fa-sun-o {
+    color: gold;
 }
 
 .container {
@@ -20,30 +24,21 @@ h2 {
     font-weight: 300;
 }
 
-.display-4 {
-    font-family: 'Staatliches', cursive;
-    font-size: 100px;
-}
-
-.searchBtn:hover {
-    background-color: #837d94;
-    color: white;
-}
-
-.cityBtn:hover {
-    background-color: gold;
+.row {
+    margin: auto;
 }
 
 .search-city {
     font-size: 20px;
 }
 
-.fa-sun-o {
-    color: gold;
+.searchBtn {
+    background-color: #003566;
+    color: white;
 }
 
-.btn {
-    background-color: #003566;
+.searchBtn:hover {
+    background-color: #837d94;
     color: white;
 }
 
@@ -52,28 +47,13 @@ h2 {
     padding: 10px;
 }
 
+.cityBtn:hover {
+    background-color: gold;
+}
+
 .city-name {
     font-family: 'Staatliches', cursive;
     font-size: 60px;
-}
-
-.dayBlock {
-    background-color: #7caec9;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-.tiny-icon {
-    width: 50px;
-}
-
-.tiny-date {
-    font-family: 'Staatliches', cursive;
-    font-size: 22px;
-}
-
-.tiny-day {
-    font-style: italic;
 }
 
 .extreme {
@@ -103,9 +83,34 @@ h2 {
     padding: 5px;
 }
 
+.dayBlock {
+    background-color: #7caec9;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.tiny-icon {
+    width: 50px;
+}
+
+.tiny-date {
+    font-family: 'Staatliches', cursive;
+    font-size: 22px;
+}
+
+.tiny-day {
+    font-style: italic;
+}
+
+
 .forecast-header,
 #current-date {
     font-size: 30px;
+}
+
+#weatherCol {
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 #city-info {
@@ -122,11 +127,6 @@ h2 {
 
 #bottom-row {
     padding-bottom: 100px;
-}
-
-#weatherCol {
-    padding-left: 50px;
-    padding-right: 50px;
 }
 
 @media only screen and (max-width: 991px) {
