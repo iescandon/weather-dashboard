@@ -108,7 +108,6 @@ function renderCurrentWeather (data) {
 }
 
 function renderForecast (data) {
-    console.log(data);
     $('#bottom-row').empty();
     for (var i = 1; i < 6; i++) {
         var dayDiv = $('<div>');
