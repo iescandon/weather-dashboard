@@ -108,6 +108,7 @@ function renderCurrentWeather (data) {
 }
 
 function renderForecast (data) {
+    console.log(data);
     $('#bottom-row').empty();
     for (var i = 1; i < 6; i++) {
         var dayDiv = $('<div>');
@@ -124,11 +125,7 @@ function renderForecast (data) {
         var weatherImg = $('<img>');
         weatherImg.addClass('row justify-content-center mb-3 tiny-icon');
         if (dayWeather === "Clear") {
-            if (currentHour < 20 && currentHour > 6) {
-                weatherImg.attr('src', './assets/images/sunny.png');
-            } else {
-                weatherImg.attr('src', './assets/images/moon.png');
-            }
+            weatherImg.attr('src', './assets/images/sunny.png');
         } else if (dayWeather === "Clouds") {
             weatherImg.attr('src','./assets/images/cloudy.png');
         } else if (dayWeather === "Rain") {
