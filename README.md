@@ -1,65 +1,87 @@
 # 06 Server-Side APIs: Weather Dashboard
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
-
-## User Story
-
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
-
-## Acceptance Criteria
-
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
-```
-
-The following image demonstrates the application functionality:
-
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+# Live Site
+https://iescandon.github.io/weather-dashboard/
 
 
+## Description 
+
+This website is designed to function as an interactive weather dashboard. It allows the user to view a city's current weather and 5 day forecast. User can view the weather information simply by typing the city's name in the form. After form is submitted, the page will render the weather information for that specific city. Search history gets saved as buttons with the city's name on them underneath the search form. User can go back to a previously searched city by simply clicking on the button in the search history. Current weather provides the user with current temperature, humidity, wind speed, weather icon (representing current weather) and UV index. UV index changes color depending on where the number falls in the exposure category (green-low, yellow-moderate, orange-high, red-very high, purple-extreme). 5 day forecast provides the user with forecasted temp, weather icon, and humidity for the correlating day. The most recent search gets saved in local storage so that upon refreshing the page, the most recently searched page is rendered. If local storage is empty, the city of Houston will be rendered. To make things more readable moment.js was used to provide current day and dates of the forescast. CSS and HTML are designed to make the application user friendly and mobile responsive.
+
+## Table of Contents (Optional)
+
+If your README is very long, add a table of contents to make it easy for users to find what they need.
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
 
 
-dark sky image
+## Installation
+
+In order to install this project, you must login to GitHub and go to github.com/iescandon/weather-dashboard. Once there you will click on the green button that says clone or download. You will be given choices on how to download: using the ssh/html key or downloading the zip file.
+
+Using SSH/HTML Key:
+You will copy the link shown and open up either terminal (mac: pre-installed) or gitbash (pc: must be installed). Once the application is open, you will type git clone _paste url here_. Once you have cloned the git weather-dashboard repo, cd into the repo and type "open ." to open the folder which contains all files used for the website. Once inside the folder, click on index.html to open the website in the browser.
+
+Using Download ZIP:
+Click on Download Zip. Locate the file and double click it to unzip the file. Locate the unzipped folder and and open it. All the files for the website will be within this folder. Click on index.html to open the website in the browser.
+
+
+## Usage 
+
+Website functions as a normal website. Once on the website simply type in the form or click on the buttons to get weather information.
+
+
+## Credits
+
+Worked with my tutor Ivan Popov for help with media queries.
+
+Worked with Peter Winston for help with chrome suggestions and datalist issues.
+
+Dark Sky Image
 Photo by Patrick Tomasso on Unsplash
+https://unsplash.com/photos/biRNA1Nb9OM
+
+Drizzle, Partly Cloudy, Rainy, Snowy, Sunny, Thunderstorm, Windy Icons
+Icons made by Flat Icons
+https://www.flaticon.com/authors/flat-icons
+
+Cloudy Icon
+Icons made by Alfredo Hernandez
+https://www.flaticon.com/authors/alfredo-hernandez
+
+Moon Icon
+Icons made by Good Ware
+https://www.flaticon.com/authors/good-ware
+
+Earth Icon
+Icons made by Turkkub
+https://www.flaticon.com/authors/turkkub
 
 
-drizzle, partlycloudy, rainy, snowy, sunny, thunderstorm, windy icons
-Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+## License
 
-cloudy icon
-<div>Icons made by <a href="https://www.flaticon.com/authors/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+MIT License
 
-moon icon
-<div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+Copyright (c) [2020] [inezescandon]
 
-earth icon
-<div>Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub">turkkub</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
