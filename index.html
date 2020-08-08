@@ -1,77 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700&family=Staatliches&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">
-    <title>Weather Dashboard</title>
-</head>
-<body>
-    <header class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4"><i class="fa fa-sun-o"></i> Weather Dashboard</h1>
-        </div>
-    </header>
-    <div class="container">
-        <div class="row">
-            <!-- ASIDE COLUMN: SEARCH FORM AND SEARCH HISTORY -->
-            <aside class="col-md-12 col-lg-3" id="searchCol">
-                <!-- SEARCH FORM -->
-                <form class="form-group" autocomplete="off">
-                    <row class="row justify-content-center">
-                        <label for="city-search-input" class="search-city">Search for a City</label>
-                    </row>
-                    <row class="row form-inline">
-                        <input type="text" class="col-10 form-control" id="city-search-input" input list="cities">
-                        <datalist id="cities"></datalist>
-                        <button type="submit" class="col-2 btn searchBtn"><i class="fa fa-search"></i></button>
-                    </row>
-                </form>
-                <!-- SEARCH HISTORY BUTTONS -->
-                <row class="row">
-                    <div class="col justify-content-center city-buttons"></div>
-                </row>
-            </aside>
-            <!-- SECTION COLUMN: CURRENT WEATHER AND 5 DAY FORECAST -->
-            <section class="col-md-12 col-lg-9" id="weatherCol">
-                <!-- CURRENT DATE -->
-                <row class="row mb-3 justify-content-center">
-                    <p id="current-date"></p>
-                </row>
-                <!-- CURRENT WEATHER INFO -->
-                <row class="row" id="city-info">
-                    <!-- CURRENT WEATHER TEXT -->
-                    <div class="col-lg-7 col-md-7 col-sm-12">
-                        <h1 class="row justify-content-center city-name mb-4"></h1>
-                        <p class="row mb-4 justify-content-center weather-data temp-data"></p>
-                        <p class="row mb-4 justify-content-center weather-data humidity-data"></p>
-                        <p class="row mb-4 justify-content-center weather-data wind-data"></p>
-                        <div class="row justify-content-center weather-data">
-                            <p class="uv-data">UV Index: <span id="uv-index"></span></p>
-                        </div>
-                    </div>
-                    <!-- CURRENT WEATHER IMG ICON -->
-                    <div class="col-lg-5 col-md-5 col-sm-12">
-                        <div class="row justify-content-center">
-                            <img id="weather-icon">
-                        </div>
-                    </div>
-                </row>
-                <!-- 5 DAY FORECAST -->
-                <row class="row mt-5 justify-content-center">
-                    <p class="forecast-header">5-Day Forecast</p>
-                </row>
-                <row class="row mt-4 justify-content-center" id="bottom-row"></row>
-            </section>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700&family=Staatliches&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" type="text/css" href="./assets/style.css" />
+		<title>Weather Dashboard</title>
+	</head>
+	<body>
+		<header class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4"><i class="fa fa-sun-o"></i> Weather Dashboard</h1>
+			</div>
+		</header>
+		<div class="container">
+			<div class="row">
+				<!-- ASIDE COLUMN: SEARCH FORM AND SEARCH HISTORY -->
+				<aside class="col-md-12 col-lg-3" id="searchCol">
+					<!-- SEARCH FORM -->
+					<form class="form-group" autocomplete="off">
+						<row class="row justify-content-center">
+							<label for="city-search-input" class="search-city"
+								>Search for a City</label
+							>
+						</row>
+						<row class="row form-inline">
+							<input
+								type="text"
+								class="col-10 form-control"
+								id="city-search-input"
+								input
+								list="cities"
+							/>
+							<datalist id="cities"></datalist>
+							<button type="submit" class="col-2 btn searchBtn">
+								<i class="fa fa-search"></i>
+							</button>
+						</row>
+					</form>
+					<!-- SEARCH HISTORY BUTTONS -->
+					<row class="row">
+						<div class="col justify-content-center city-buttons"></div>
+					</row>
+				</aside>
+				<!-- SECTION COLUMN: CURRENT WEATHER AND 5 DAY FORECAST -->
+				<section class="col-md-12 col-lg-9" id="weatherCol">
+					<!-- CURRENT DATE -->
+					<row class="row mb-3 justify-content-center">
+						<p id="current-date"></p>
+					</row>
+					<!-- CURRENT WEATHER INFO -->
+					<row class="row" id="city-info">
+						<!-- CURRENT WEATHER TEXT -->
+						<div class="col-lg-7 col-md-7 col-sm-12">
+							<h1 class="row justify-content-center city-name mb-4"></h1>
+							<p
+								class="row mb-4 justify-content-center weather-data temp-data"
+							></p>
+							<p
+								class="row mb-4 justify-content-center weather-data humidity-data"
+							></p>
+							<p
+								class="row mb-4 justify-content-center weather-data wind-data"
+							></p>
+							<div class="row justify-content-center weather-data">
+								<p class="uv-data">UV Index: <span id="uv-index"></span></p>
+							</div>
+						</div>
+						<!-- CURRENT WEATHER IMG ICON -->
+						<div class="col-lg-5 col-md-5 col-sm-12">
+							<div class="row justify-content-center">
+								<img id="weather-icon" />
+							</div>
+						</div>
+					</row>
+					<!-- 5 DAY FORECAST -->
+					<row class="row mt-5 justify-content-center">
+						<p class="forecast-header">5-Day Forecast</p>
+					</row>
+					<row class="row mt-4 justify-content-center" id="bottom-row"></row>
+				</section>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"
+		></script>
+		<script src="./assets/script.min.js"></script>
+	</body>
 </html>
